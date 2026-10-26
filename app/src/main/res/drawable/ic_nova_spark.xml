@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- Single nova spark — same mark as the launcher icon, simplified for small UI use -->
+    <path
+        android:fillColor="#5AD8FF"
+        android:pathData="M21,12 L13.77,10.23 L12,3 L10.23,10.23 L3,12 L10.23,13.77 L12,21 L13.77,13.77 Z" />
+</vector>

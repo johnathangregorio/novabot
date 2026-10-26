@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.CateringBot" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/text_section</item>
+        <item name="colorPrimaryVariant">@color/text_section</item>
+        <item name="colorOnPrimary">@color/text_on_section</item>
+        <item name="colorSecondary">@color/text_section</item>
+        <item name="colorOnSecondary">@color/text_on_section</item>
+        <item name="colorAccent">@color/text_section</item>
+        <item name="colorSurface">@color/bg_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:colorBackground">@color/bg_screen</item>
+    </style>
+</resources>

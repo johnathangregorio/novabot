@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Root is a FrameLayout so the gradient animation can sit as one persistent full-bleed layer
+     behind every step (not just Welcome), with the actual scrollable step content layered on
+     top in a semi-transparent dark scrim for text contrast against the busy animated colors. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:lottie_rawRes="@raw/gradient_background"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true"
+        android:background="#4D121212">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tv_step_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STEP 1 OF 5"
+            android:textSize="11sp"
+            android:textColor="@color/ob_text_primary"
+            android:shadowColor="#CC000000"
+            android:shadowRadius="3"
+            android:shadowDy="1"
+            android:letterSpacing="0.12"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_onboarding"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:max="5"
+            android:progress="1"
+            android:progressTint="@color/ob_text_primary"
+            android:progressBackgroundTint="#40FFFFFF"
+            android:layout_marginBottom="28dp" />
+
+        <!-- ══════════════════ STEP: WELCOME — flexible FrameLayout (same centering pattern as
+             before), gradient background now lives at the activity root instead of nested here. -->
+        <FrameLayout
+            android:id="@+id/welcome_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/step_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:contentDescription="@string/app_name" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginBottom="16dp"
+                    app:lottie_rawRes="@raw/welcome"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome to NovaBot"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="4"
+                    android:shadowDy="1"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="NovaBot auto-claims catering offers for you. Let's get it set up — it only takes a minute."
+                    android:textSize="14sp"
+                    android:textColor="#E8E8E8"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="4"
+                    android:shadowDy="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="32dp" />
+
+                <Button
+                    android:id="@+id/btn_welcome_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Get Started"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:backgroundTint="@color/text_section"
+                    android:textColor="@color/text_on_section"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- ══════════════════ STEP: ACCESSIBILITY SERVICE ══════════════════ -->
+        <View
+            android:id="@+id/accessibility_spacer_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/step_accessibility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Accessibility Service"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/ob_text_primary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="4"
+                android:shadowDy="1"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This lets the bot read and tap the Dasher app on your behalf, so it can claim offers automatically."
+                android:textSize="13sp"
+                android:textColor="@color/ob_text_secondary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:id="@+id/btn_ob_accessibility"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Enable"
+                android:textStyle="bold"
+                android:backgroundTint="@color/text_section"
+                android:textColor="@color/text_on_section"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/accessibility_spacer_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <!-- ══════════════════ STEP: OVERLAY PERMISSION ══════════════════ -->
+        <View
+            android:id="@+id/overlay_spacer_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/step_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grant Overlay Permission"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/ob_text_primary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="4"
+                android:shadowDy="1"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This shows a small 🤖 button over Dasher so you can start/stop the bot without switching apps."
+                android:textSize="13sp"
+                android:textColor="@color/ob_text_secondary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:id="@+id/btn_ob_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Grant"
+                android:textStyle="bold"
+                android:backgroundTint="@color/text_section"
+                android:textColor="@color/text_on_section"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/overlay_spacer_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <!-- ══════════════════ STEP: NOTIFICATIONS ══════════════════ -->
+        <View
+            android:id="@+id/notif_spacer_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/step_notif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enable Notifications"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/ob_text_primary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="4"
+                android:shadowDy="1"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get Android alerts for bot events like claimed offers or the bot stopping."
+                android:textSize="13sp"
+                android:textColor="@color/ob_text_secondary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <Button
+                android:id="@+id/btn_ob_notif"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Grant"
+                android:textStyle="bold"
+                android:backgroundTint="@color/text_section"
+                android:textColor="@color/text_on_section"
+                android:insetTop="0dp"
+                android:insetBottom="0dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/notif_spacer_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <!-- ══════════════════ STEP: TELEGRAM (Optional) ══════════════════ -->
+        <View
+            android:id="@+id/telegram_spacer_top"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/step_telegram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connect Telegram (Optional)"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/ob_text_primary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="4"
+                android:shadowDy="1"
+                android:layout_marginBottom="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get notified on Telegram when offers are claimed or the bot stops.&#10;&#10;1. In Telegram, message @BotFather, send /newbot and copy the token it gives you.&#10;2. Send any message to your new bot.&#10;3. Paste the token below and tap Detect.&#10;&#10;Skip for now and set this up anytime later in Settings."
+                android:textSize="13sp"
+                android:textColor="@color/ob_text_secondary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:lineSpacingExtra="4dp"
+                android:layout_marginBottom="20dp" />
+
+            <EditText
+                android:id="@+id/et_ob_telegram_token"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Bot token (from @BotFather)"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint"
+                android:textSize="14sp"
+                android:singleLine="true"
+                android:inputType="textNoSuggestions|textVisiblePassword"
+                android:background="@color/bg_card"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <EditText
+                    android:id="@+id/et_ob_telegram_chat_id"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:hint="Chat ID"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="14sp"
+                    android:singleLine="true"
+                    android:inputType="numberSigned"
+                    android:background="@color/bg_card"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp" />
+
+                <Button
+                    android:id="@+id/btn_ob_telegram_detect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Detect"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_on_section"
+                    android:backgroundTint="@color/text_section"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ob_telegram_connect"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Test &amp; Save"
+                android:textStyle="bold"
+                android:backgroundTint="@color/text_section"
+                android:textColor="@color/text_on_section"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_ob_telegram_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="@color/ob_text_hint"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_ob_telegram_skip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Skip for now"
+                android:textSize="13sp"
+                android:textColor="@color/ob_text_secondary"
+                android:shadowColor="#CC000000"
+                android:shadowRadius="3"
+                android:shadowDy="1"
+                android:gravity="center"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/telegram_spacer_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <!-- ══════════════════ STEP: DONE — confetti Lottie layered on top of the content,
+             played once (not looped) each time this step is shown. ══════════════════ -->
+        <FrameLayout
+            android:id="@+id/done_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/step_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✅"
+                    android:textSize="56sp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You're all set!"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/ob_text_primary"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="4"
+                    android:shadowDy="1"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_ob_done_sub"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The bot is ready to run. Last step: tell it what kind of offers to claim."
+                    android:textSize="14sp"
+                    android:textColor="@color/ob_text_secondary"
+                    android:shadowColor="#CC000000"
+                    android:shadowRadius="3"
+                    android:shadowDy="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginBottom="28dp" />
+
+                <Button
+                    android:id="@+id/btn_ob_finish"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Set Up Filters"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:backgroundTint="@color/text_section"
+                    android:textColor="@color/text_on_section"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp" />
+
+            </LinearLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottie_confetti"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:focusable="false"
+                app:lottie_rawRes="@raw/congratulation"
+                app:lottie_autoPlay="false"
+                app:lottie_loop="false" />
+
+        </FrameLayout>
+
+        <!-- Back navigation -->
+        <TextView
+            android:id="@+id/tv_ob_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textSize="13sp"
+            android:textColor="@color/ob_text_hint"
+            android:shadowColor="#CC000000"
+            android:shadowRadius="3"
+            android:shadowDy="1"
+            android:gravity="center"
+            android:padding="14dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

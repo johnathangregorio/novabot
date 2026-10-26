@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Launcher / branding -->
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ic_launcher_background">#FF1E1E2E</color>
+
+    <!-- Settings — light mode (day) -->
+    <color name="bg_screen">#F0F2F5</color>
+    <color name="bg_card">#FFFFFF</color>
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#555555</color>
+    <color name="text_hint">#999999</color>
+    <color name="text_section">#1565C0</color>
+    <color name="divider_line">#EBEBEB</color>
+    <color name="card_stroke">#E0E0E0</color>
+    <color name="pin_card_bg">#E3F2FD</color>
+    <color name="btn_accent_bg">#E3F2FD</color>
+    <color name="success_color">#2E7D32</color>
+    <color name="btn_done_bg">#DDDDDD</color>
+    <color name="btn_done_text">#444444</color>
+    <color name="text_on_section">#FFFFFF</color>
+    <color name="highlight_card_bg">#FFF8E1</color>
+
+
+    <!-- Membership: subtle background strip inside cards (stat rows), and gold
+         accent text — gold needs a darker light-mode variant since #FFC439 has
+         poor contrast on a white card. -->
+    <color name="stat_row_bg">#F0F2F5</color>
+    <color name="accent_gold_text">#8D6E00</color>
+
+    <!-- Status color — legible on both light and dark card surfaces, no day/night pair needed.
+         (success uses the existing success_color above.) -->
+    <color name="danger_text">#D84315</color>
+
+    <!-- Onboarding wizard only — activity_onboarding.xml's step content sits directly on an
+         animated gradient (behind a dark scrim), not a white/light card like text_primary etc.
+         assume everywhere else in the app. These are for text on that gradient specifically;
+         text inside the wizard's own solid white boxes (redeem code input, plan tab pill)
+         still uses the regular text_primary/text_hint above, since those really are light. -->
+    <color name="ob_text_primary">#FFFFFF</color>
+    <color name="ob_text_secondary">#E8E8E8</color>
+    <color name="ob_text_hint">#CCCCCC</color>
+</resources>

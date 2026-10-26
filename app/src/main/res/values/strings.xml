@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NovaBot</string>
+    <string name="accessibility_service_label">NovaBot</string>
+    <string name="accessibility_service_description">Monitors the Dasher app UI to automate catering order detection and claiming.</string>
+</resources>

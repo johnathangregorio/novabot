@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Settings — dark mode (night) -->
+    <color name="bg_screen">#1A1A1A</color>
+    <color name="bg_card">#2A2A2A</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#AAAAAA</color>
+    <color name="text_hint">#777777</color>
+    <color name="text_section">#00BCD4</color>
+    <color name="divider_line">#333333</color>
+    <color name="card_stroke">#383838</color>
+    <color name="pin_card_bg">#0D2133</color>
+    <color name="btn_accent_bg">#1A2A3A</color>
+    <color name="btn_done_bg">#333333</color>
+    <color name="btn_done_text">#AAAAAA</color>
+    <color name="text_on_section">#000000</color>
+    <color name="highlight_card_bg">#2A2018</color>
+    <color name="stat_row_bg">#1E1E1E</color>
+    <color name="accent_gold_text">#FFC439</color>
+</resources>
