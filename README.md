@@ -53,6 +53,10 @@ You need **JDK 17** and the Android SDK (API 35). Much newer JDKs (for example t
 with recent Android Studio releases) break the release build's lint step on this Android Gradle
 plugin version. Point `JAVA_HOME` at a JDK 17, or set Android Studio's Gradle JDK to 17.
 
+Gradle also needs to know where the Android SDK is. Opening the project in Android Studio handles
+this. From the command line, set `ANDROID_HOME`, or create a `local.properties` file with
+`sdk.dir=/path/to/Android/Sdk`.
+
 ```sh
 ./gradlew assembleDebug        # app/build/outputs/apk/debug/app-debug.apk
 ./gradlew assembleRelease      # minified build, signed with your local debug keystore
