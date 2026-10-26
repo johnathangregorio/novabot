@@ -74,6 +74,8 @@ screens are plain Android Views.
 
 ## Contributing
 
+New to the code? Start with the [Developer Guide](docs/DEVELOPER_GUIDE.md).
+
 Issues and pull requests are welcome. DoorDash changes its app often, so screen-detection fixes
 are especially useful. Include the Dasher app version you tested against.
 
