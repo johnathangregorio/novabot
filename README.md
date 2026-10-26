@@ -76,3 +76,7 @@ screens are plain Android Views.
 
 Issues and pull requests are welcome. DoorDash changes its app often, so screen-detection fixes
 are especially useful. Include the Dasher app version you tested against.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
